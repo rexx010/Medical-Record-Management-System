@@ -1,6 +1,6 @@
 
 class Doctor:
-    doctor_id_counter = 0
+    did_counter = 0
 
     def __init__(self, name, specialisation, contact_info: dict):
         self.id = self.__create_id()
@@ -10,8 +10,8 @@ class Doctor:
 
     @classmethod
     def __create_id(cls):
-        cls.doctor_id_counter += 1
-        return f"DOC{cls.doctor_id_counter}"
+        cls.did_counter += 1
+        return f"DOC00{cls.did_counter}"
 
     @property
     def get_id(self):
@@ -41,11 +41,14 @@ class Doctor:
     def contact_info(self, contact_info):
         self.__contact_info = contact_info
 
-
-    def __str__(self):
-        return (f'Name: {self.name}.\n'
-                f'Doctor contact: {self.contact_info}\n'
-                f'Specialisation: {self.specialisation}.\n'
-                f'Assigned ID: {self.get_id}')
-
-
+    def _str_(self):
+        contact = self.contact_info
+        return (
+            f"Doctor ID: {self.id}\n"
+            f"Name: {self.name}\n"
+            f"Specialisation: {self.specialisation}\n"
+            f"Phone: {contact.get('phone number', '')}\n"
+            f"Email: {contact.get('email', '')}\n"
+            f"Address: {contact.get('address', '')}\n"
+            f"Gender: {contact.get('gender', '')}"
+        )
