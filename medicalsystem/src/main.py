@@ -6,7 +6,7 @@ from patient import Patient
 medical_sys = MedicalSystem()
 
 message = """
-Welcome to Medical System
+Welcome to Medical System 
 =========================
 press 1 to Add a Doctor
 press 2 to Add a Patient
